@@ -584,7 +584,7 @@
   };
 
   function setLang(lang){
-    document.querySelectorAll('[data-fr]').forEach(el => {
+    document.querySelectorAll('[data-en]').forEach(el => {
       const val = el.getAttribute(lang === 'fr' ? 'data-fr' : 'data-en');
       if(val !== null) el.textContent = val;
     });
