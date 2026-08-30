@@ -4,12 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Aboubeker Sadik Menni — Systems & VMware Infrastructure Engineer</title>
-<meta name="description" content="Aboubeker Sadik Menni — Systems & VMware Infrastructure Engineer spécialisé en VMware Cloud Foundation (VCF), vSphere, Data Center et HCI. 4+ ans d’expérience et 10 certifications vérifiées.">
+<meta name="description" content="Aboubeker Sadik Menni — Systems & VMware Infrastructure Engineer specialized in VMware Cloud Foundation (VCF), vSphere, Data Center and HCI. 4+ years of experience and 10 verified certifications.">
   <meta name="author" content="Aboubeker Sadik Menni">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="theme-color" content="#0B0E13">
   <link rel="canonical" href="https://aboubeker.github.io/portfolio/">
-<meta property="og:locale" content="fr_FR">
+<meta property="og:locale" content="en_US">
   <meta property="og:type" content="website">
 <meta property="og:title" content="Aboubeker Sadik Menni — Systems & VMware Infrastructure Engineer">
 <meta property="og:description" content="Systems & VMware Infrastructure Engineer spécialisé en VCF/vSphere, Data Center & HCI, avec expérience en environnements bancaires, gouvernementaux et industriels.">
@@ -241,8 +241,8 @@
         <a href="#contact" data-fr="Contact" data-en="Contact">Contact</a>
       </div>
       <div class="lang-toggle">
-        <button id="btn-fr" class="active">FR</button>
-        <button id="btn-en">EN</button>
+        <button id="btn-fr">FR</button>
+        <button id="btn-en" class="active">EN</button>
       </div>
     </nav>
   </div>
@@ -538,7 +538,7 @@
         <div class="skill-tags">
           <span class="tag" data-fr="Français — Courant" data-en="French — Fluent">Français — Courant</span>
           <span class="tag" data-fr="Arabe — Langue maternelle" data-en="Arabic — Native">Arabe — Langue maternelle</span>
-          <span class="tag" data-fr="Anglais — Intermédiaire" data-en="English — Intermediate">Anglais — Intermédiaire</span>
+          <span class="tag" data-fr="Anglais — Courant" data-en="English — Fluent">Anglais — Courant</span>
         </div>
       </div>
     </div>
@@ -584,7 +584,7 @@
   };
 
   function setLang(lang){
-    document.querySelectorAll('[data-en]').forEach(el => {
+    document.querySelectorAll('[data-fr]').forEach(el => {
       const val = el.getAttribute(lang === 'fr' ? 'data-fr' : 'data-en');
       if(val !== null) el.textContent = val;
     });
@@ -596,6 +596,9 @@
   }
   btnFr.addEventListener('click', () => setLang('fr'));
   btnEn.addEventListener('click', () => setLang('en'));
+
+  // Default language: English
+  setLang('en');
 
   // Back to top
   const backBtn = document.getElementById('back-to-top');
