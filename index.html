@@ -28,17 +28,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#0B0E13;
-    --panel:#12161D;
-    --panel-2:#161C25;
-    --border:#232A34;
-    --text:#EDEFF2;
-    --muted:#8B94A0;
-    --dim:#565F6B;
-    --accent:#4C8DFF;
-    --green:#34D399;
-    --white:#FFFFFF;
-    --sans:'Inter', -apple-system, sans-serif;
+    --bg:#F4F7FB; --panel:#FFFFFF; --panel-2:#EEF3FA;
+    --border:#DCE4EF; --text:#172235; --muted:#58677B;
+    --dim:#748197; --accent:#2563EB; --green:#059669;
+    --white:#FFFFFF; --sans:'Inter', -apple-system, sans-serif;
     --grot:'Space Grotesk', sans-serif;
   }
   *{box-sizing:border-box; margin:0; padding:0;}
@@ -55,7 +48,7 @@
   /* ---- Header ---- */
   header{
     position:sticky; top:0; z-index:50;
-    background:rgba(11,14,19,0.88); backdrop-filter:blur(10px);
+    background:rgba(255,255,255,0.90); backdrop-filter:blur(12px);
     border-bottom:1px solid var(--border);
   }
   .topbar{display:flex; align-items:center; justify-content:space-between; padding:16px 28px; max-width:1040px; margin:0 auto;}
@@ -167,7 +160,7 @@
   .exp-date{font-size:12.5px; color:var(--dim); font-weight:500; white-space:nowrap;}
   .exp-org{font-size:13.5px; color:var(--muted); margin-bottom:12px;}
   .exp-list{list-style:none;}
-  .exp-list li{position:relative; padding-left:18px; margin-bottom:7px; font-size:14px; color:#C9D0D9;}
+  .exp-list li{position:relative; padding-left:18px; margin-bottom:7px; font-size:14px; color:#344256;}
   .exp-list li::before{content:"→"; position:absolute; left:0; color:var(--accent); font-size:12px; top:2px;}
 
   /* ---- Contact ---- */
@@ -190,11 +183,32 @@
     width:44px; height:44px; border-radius:50%;
     background:var(--accent); color:#fff; border:none; cursor:pointer;
     display:flex; align-items:center; justify-content:center; font-size:18px;
-    box-shadow:0 4px 14px rgba(0,0,0,0.35);
+    box-shadow:0 6px 18px rgba(24,48,84,0.16);
     opacity:0; pointer-events:none; transform:translateY(10px);
     transition:opacity .2s, transform .2s;
   }
   #back-to-top.show{opacity:1; pointer-events:auto; transform:translateY(0);}
+
+  /* Corporate light refinements */
+  body{background:var(--bg);}
+  .hero{padding:82px 0 72px;}
+  .photo-frame{width:220px;height:220px;border-radius:50%;border:4px solid #fff;box-shadow:0 0 0 1px var(--border),0 12px 32px rgba(26,50,85,.12);}
+  .avail-tag{background:#E8F7F0;border-color:#B9E8D1;color:#087A53;}
+  .dot{background:#10B981;box-shadow:0 0 6px rgba(16,185,129,.35);}
+  .skill-card,.project-card,.badge-card,.verify-banner,.contact-panel{box-shadow:0 5px 18px rgba(31,54,88,.045);}
+  .project-card.featured{grid-column:1/-1;border-color:#B9CCF5;background:linear-gradient(135deg,#fff 0%,#F2F6FF 100%);}
+  .project-card.featured h3{font-size:20px;}
+  .project-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:18px 0;}
+  .project-metric{background:#fff;border:1px solid var(--border);border-radius:9px;padding:13px 15px;}
+  .project-metric strong{display:block;font:700 25px var(--grot);color:var(--accent);}
+  .project-metric span{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;}
+  .project-detail-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:14px;}
+  .project-detail{background:rgba(255,255,255,.75);border:1px solid var(--border);border-radius:9px;padding:15px;}
+  .project-detail h4{font-size:13px;margin-bottom:7px;color:var(--text);}
+  .project-detail p{margin:0;font-size:12.5px;}
+  .role-pill{display:inline-flex;align-items:center;border:1px solid #B9CCF5;background:#EAF1FF;color:#1D4ED8;border-radius:6px;padding:5px 9px;font-size:11px;font-weight:700;margin:2px 0 10px;}
+  @media(max-width:700px){.project-metrics{grid-template-columns:repeat(3,minmax(0,1fr))}.project-detail-grid{grid-template-columns:1fr}.photo-frame{width:190px;height:190px}}
+
 </style>
 
   <script type="application/ld+json">
@@ -241,8 +255,8 @@
         <a href="#contact" data-fr="Contact" data-en="Contact">Contact</a>
       </div>
       <div class="lang-toggle">
-        <button id="btn-fr">FR</button>
-        <button id="btn-en" class="active">EN</button>
+        <button id="btn-fr" class="active">FR</button>
+        <button id="btn-en">EN</button>
       </div>
     </nav>
   </div>
@@ -263,10 +277,10 @@
         </div>
         <h1>Aboubeker Sadik Menni</h1>
         <p class="hero-role">
-          <b data-fr="Systems & VMware Infrastructure Engineer | VMware VCF / vSphere | Data Center & HCI"
-             data-en="Systems Engineer — VMware Architect / Cloud Infrastructure.">Systems & VMware Infrastructure Engineer | VMware VCF / vSphere | Data Center & HCI</b>
-          <span data-fr=" Expérience pratique en déploiement, migration, lifecycle management, upgrades et troubleshooting d’infrastructures de production."
-                data-en=" 4+ years designing and securing critical virtualization environments for banking, energy and government sectors."> Expérience pratique en déploiement, migration, lifecycle management, upgrades et troubleshooting d’infrastructures de production.</span>
+          <b data-fr="Ingénieur Systèmes & VMware | Chef de projet technique | Infrastructure Cloud"
+             data-en="Systems & VMware Engineer | Technical Project Lead | Cloud Infrastructure">Systems & VMware Infrastructure Engineer | VMware VCF / vSphere | Data Center & HCI</b>
+          <span data-fr=" Pilotage et déploiement de plateformes VMware, infrastructures HCI, migrations et solutions de reprise après sinistre."
+                data-en=" Project delivery and hands-on deployment of VMware platforms, HCI infrastructure, migrations and disaster recovery solutions."> Expérience pratique en déploiement, migration, lifecycle management, upgrades et troubleshooting d’infrastructures de production.</span>
         </p>
 
         <div class="stat-row">
@@ -387,6 +401,11 @@
           <span class="tag">Dell VxRail</span>
           <span class="tag">Hyper-V</span>
           <span class="tag">vCenter</span><span class="tag">vDS</span><span class="tag">VCF Lifecycle</span>
+          <span class="tag">VMware vSphere Replication</span>
+          <span class="tag">Dell PowerProtect Data Manager</span>
+          <span class="tag">Dell PowerProtect Data Domain</span>
+          <span class="tag">Dell IDPA 4400</span>
+          <span class="tag">Dell PowerSwitch ToR</span>
         </div>
       </div>
 
@@ -455,6 +474,26 @@
   <p class="section-sub" data-en="A concise view of production work across banking, government and industrial environments." data-fr="Une vue synthétique des réalisations en production dans les secteurs bancaire, gouvernemental et industriel.">Une vue synthétique des réalisations en production dans les secteurs bancaire, gouvernemental et industriel.</p>
  </div>
  <div class="project-grid">
+  <article class="project-card featured">
+   <div class="project-kicker">ELSEWEDY ELECTRIC ALGÉRIE · INDUSTRIAL · DISASTER RECOVERY</div>
+   <h3 data-fr="Architecture de reprise après sinistre VMware — PRA bi-site HO/BO" data-en="VMware Disaster Recovery Architecture — Two-Site HO/BO DR">Architecture de reprise après sinistre VMware — PRA bi-site HO/BO</h3>
+   <span class="role-pill" data-fr="Chef de projet &amp; Ingénieur de déploiement" data-en="Project Lead &amp; Deployment Engineer">Chef de projet &amp; Ingénieur de déploiement</span>
+   <p data-fr="Pilotage et réalisation du déploiement d’une architecture de reprise après sinistre entre Ain Defla (HO) et El Biar (BO). Mise en place de la plateforme VMware, migration d’environ 100 machines virtuelles depuis l’infrastructure Dell VxRail vers la nouvelle plateforme VMware, configuration de la réplication inter-sites et validation des mécanismes de continuité."
+      data-en="Led and delivered a two-site disaster recovery architecture between Ain Defla (HO) and El Biar (BO). Deployed the VMware platform, migrated approximately 100 virtual machines from Dell VxRail to the new VMware platform, configured inter-site replication and validated business continuity capabilities.">Pilotage et réalisation du déploiement d’une architecture de reprise après sinistre entre Ain Defla (HO) et El Biar (BO). Mise en place de la plateforme VMware, migration d’environ 100 machines virtuelles depuis l’infrastructure Dell VxRail vers la nouvelle plateforme VMware, configuration de la réplication inter-sites et validation des mécanismes de continuité.</p>
+   <div class="project-metrics">
+    <div class="project-metric"><strong>100</strong><span data-fr="VM migrées" data-en="VMs migrated">VM migrées</span></div>
+    <div class="project-metric"><strong>4</strong><span data-fr="Dell ReadyNodes" data-en="Dell ReadyNodes">Dell ReadyNodes</span></div>
+    <div class="project-metric"><strong>2</strong><span data-fr="Sites HO / BO" data-en="HO / BO sites">Sites HO / BO</span></div>
+   </div>
+   <div class="project-detail-grid">
+    <div class="project-detail"><h4 data-fr="Pilotage &amp; déploiement" data-en="Project delivery &amp; deployment">Pilotage &amp; déploiement</h4><p data-fr="Coordination des activités techniques, préparation des infrastructures, déploiement des composants VMware et Dell, suivi des migrations et organisation des validations." data-en="Coordinated technical workstreams, prepared infrastructure, deployed VMware and Dell components, followed migrations and organized validation tests.">Coordination des activités techniques, préparation des infrastructures, déploiement des composants VMware et Dell, suivi des migrations et organisation des validations.</p></div>
+    <div class="project-detail"><h4 data-fr="Migration &amp; reprise" data-en="Migration &amp; recovery">Migration &amp; reprise</h4><p data-fr="Migration des VM depuis Dell VxRail vers la nouvelle plateforme VMware, configuration de VMware vSphere Replication et préparation des scénarios de bascule et de retour arrière." data-en="Migrated VMs from Dell VxRail to the new VMware platform, configured VMware vSphere Replication and prepared failover and failback scenarios.">Migration des VM depuis Dell VxRail vers la nouvelle plateforme VMware, configuration de VMware vSphere Replication et préparation des scénarios de bascule et de retour arrière.</p></div>
+    <div class="project-detail"><h4 data-fr="Infrastructure &amp; réseau" data-en="Infrastructure &amp; networking">Infrastructure &amp; réseau</h4><p data-fr="Déploiement de 4 Dell ReadyNodes, configuration vSAN, commutateurs ToR, VLAN et connectivité inter-sites. Réinstallation et remise en service des équipements VxRail et IDPA 4400 sur le site BO." data-en="Deployed 4 Dell ReadyNodes, configured vSAN, ToR switches, VLANs and inter-site connectivity. Reimaged and recommissioned VxRail and IDPA 4400 equipment at the BO site.">Déploiement de 4 Dell ReadyNodes, configuration vSAN, commutateurs ToR, VLAN et connectivité inter-sites. Réinstallation et remise en service des équipements VxRail et IDPA 4400 sur le site BO.</p></div>
+    <div class="project-detail"><h4 data-fr="Protection &amp; validation" data-en="Data protection &amp; validation">Protection &amp; validation</h4><p data-fr="Déploiement de PPDM et reconfiguration de Data Domain. Tests HA, DRS, vMotion, réplication, sauvegarde et restauration." data-en="Deployed PPDM and reconfigured Data Domain. Tested HA, DRS, vMotion, replication, backup and restore.">Déploiement de PPDM et reconfiguration de Data Domain. Tests HA, DRS, vMotion, réplication, sauvegarde et restauration.</p></div>
+   </div>
+   <div class="project-label" data-fr="Technologies" data-en="Technologies">Technologies</div>
+   <div class="project-tags"><span>VMware Cloud Foundation (VCF)</span><span>VMware vSphere Foundation (VVF)</span><span>VMware vSphere 9</span><span>VMware vSAN</span><span>VMware NSX</span><span>vSphere Replication</span><span>Dell VxRail</span><span>PPDM</span><span>PowerProtect Data Domain</span><span>IDPA 4400</span><span>Dell PowerSwitch ToR</span></div>
+  </article>
   <article class="project-card"><div class="project-kicker">CPA · BANKING</div><h3>VCF Migration &amp; Upgrade</h3><p data-en="90+ Hyper-V VMs migrated to VMware, plus VCF 5.0 → 5.2 lifecycle work and infrastructure troubleshooting." data-fr="90+ VMs Hyper-V migrées vers VMware, avec upgrade VCF 5.0 → 5.2, lifecycle management et troubleshooting d’infrastructure.">90+ VMs Hyper-V migrées vers VMware, avec upgrade VCF 5.0 → 5.2, lifecycle management et troubleshooting d’infrastructure.</p><div class="project-tags"><span>VCF</span><span>SDDC Manager</span><span>vCenter</span><span>VCF Operations</span><span>NSX</span></div></article>
   <article class="project-card"><div class="project-kicker">BEA · BANKING</div><h3>VVF HCI Deployment</h3><p data-en="vSphere Foundation HCI environment with vSphere 8, 8 ESXi hosts, vSAN, HA/DRS, vDS and ToR networking." data-fr="Environnement HCI vSphere Foundation avec vSphere 8, 8 hôtes ESXi, vSAN, HA/DRS, vDS et réseau ToR.">Environnement HCI vSphere Foundation avec vSphere 8, 8 hôtes ESXi, vSAN, HA/DRS, vDS et réseau ToR.</p><div class="project-tags"><span>VVF</span><span>vSAN</span><span>HA/DRS</span><span>vDS</span></div></article>
   <article class="project-card"><div class="project-kicker">GOVERNMENT · DR</div><h3>VMware Disaster Recovery</h3><p data-en="Contributed to the deployment and validation of a VMware-based Disaster Recovery infrastructure." data-fr="Contribution au déploiement et à la validation d’une infrastructure VMware de reprise après sinistre.">Contribution au déploiement et à la validation d’une infrastructure VMware de reprise après sinistre.</p><div class="project-tags"><span>ESXi</span><span>vCenter</span><span>HA</span><span>DR</span></div></article>
@@ -471,6 +510,14 @@
  <div class="exp-item">
   <div class="exp-top"><div class="exp-title" data-en="Systems Engineer" data-fr="Ingénieur Systèmes">Ingénieur Systèmes</div><div class="exp-date" data-en="May 2025 → Present" data-fr="Mai 2025 → Présent">Mai 2025 → Présent</div></div>
   <div class="exp-org">SOFIM Algérie — Alger, Algérie</div>
+   <div class="project-label" data-fr="ELSEWEDY Electric Algérie — Chef de projet &amp; Ingénieur de déploiement" data-en="ELSEWEDY Electric Algeria — Project Lead &amp; Deployment Engineer">ELSEWEDY Electric Algérie — Chef de projet &amp; Ingénieur de déploiement</div>
+   <ul class="exp-list">
+    <li data-fr="Pilotage et coordination du déploiement d’une architecture PRA bi-site entre Ain Defla (HO) et El Biar (BO), avec suivi des activités techniques sur les deux sites." data-en="Led and coordinated the deployment of a two-site disaster recovery architecture between Ain Defla (HO) and El Biar (BO), tracking technical activities across both sites.">Pilotage et coordination du déploiement d’une architecture PRA bi-site entre Ain Defla (HO) et El Biar (BO), avec suivi des activités techniques sur les deux sites.</li>
+    <li data-fr="Déploiement de la plateforme VMware Cloud Foundation / vSphere Foundation et de l’infrastructure HCI associée, reposant sur 4 serveurs Dell ReadyNodes." data-en="Deployed the VMware Cloud Foundation / vSphere Foundation platform and its HCI infrastructure, based on 4 Dell ReadyNodes.">Déploiement de la plateforme VMware Cloud Foundation / vSphere Foundation et de l’infrastructure HCI associée, reposant sur 4 serveurs Dell ReadyNodes.</li>
+    <li data-fr="Organisation et réalisation de la migration d’environ 100 machines virtuelles depuis l’infrastructure Dell VxRail vers la nouvelle plateforme VMware, avec préparation, transfert, mise en service et contrôles post-migration." data-en="Organized and performed the migration of approximately 100 virtual machines from Dell VxRail to the new VMware platform, including preparation, transfer, commissioning and post-migration checks.">Organisation et réalisation de la migration d’environ 100 machines virtuelles depuis l’infrastructure Dell VxRail vers la nouvelle plateforme VMware, avec préparation, transfert, mise en service et contrôles post-migration.</li>
+    <li data-fr="Configuration de VMware vSphere Replication pour la réplication inter-sites et préparation des procédures de bascule et de retour arrière." data-en="Configured VMware vSphere Replication for inter-site replication and prepared failover and failback procedures.">Configuration de VMware vSphere Replication pour la réplication inter-sites et préparation des procédures de bascule et de retour arrière.</li>
+    <li data-fr="Installation et configuration des commutateurs ToR, de PPDM et de Data Domain, puis validation des fonctions HA, DRS, vMotion, sauvegarde et restauration." data-en="Installed and configured ToR switches, PPDM and Data Domain, then validated HA, DRS, vMotion, backup and restore.">Installation et configuration des commutateurs ToR, de PPDM et de Data Domain, puis validation des fonctions HA, DRS, vMotion, sauvegarde et restauration.</li>
+   </ul>
   <div class="project-label" data-fr="CPA — VMware Cloud Foundation" data-en="CPA — VMware Cloud Foundation">CPA — VMware Cloud Foundation</div>
   <ul class="exp-list">
    <li data-en="Technically contributed to the migration of 90+ virtual machines from Microsoft Hyper-V to VMware, including vCenter, vSphere clusters, HA/DRS, vDS and NFS datastore preparation." data-fr="Prise en charge technique de la migration de 90+ machines virtuelles de Microsoft Hyper-V vers VMware, incluant vCenter, clusters vSphere, HA/DRS, vDS et préparation des datastores NFS.">Prise en charge technique de la migration de 90+ machines virtuelles de Microsoft Hyper-V vers VMware, incluant vCenter, clusters vSphere, HA/DRS, vDS et préparation des datastores NFS.</li>
@@ -597,8 +644,8 @@
   btnFr.addEventListener('click', () => setLang('fr'));
   btnEn.addEventListener('click', () => setLang('en'));
 
-  // Default language: English
-  setLang('en');
+  // Default language: French
+  setLang('fr');
 
   // Back to top
   const backBtn = document.getElementById('back-to-top');
